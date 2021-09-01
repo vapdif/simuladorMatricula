@@ -6,7 +6,9 @@ namespace simuladorMatricula
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            students newStudent = new students("", 0, 0, 0, 0, 0, 0);
+            newStudent.Entry();
+            Console.ReadKey();
         }
     }
 }
