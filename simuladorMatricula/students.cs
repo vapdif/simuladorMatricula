@@ -7,11 +7,13 @@ namespace simuladorMatricula
     class students
     {
         private string fName;
-        private int vCred, stratrum, nCred, vTotal, vDiscount, vNet;
+        private int pass, vCred, stratrum, nCred, vTotal, vDiscount, vNet;
 
-        public students(string fName, int vCred, int stratrum, int nCred, int vTotal, int vDiscount, int vNet)
+        public students(string fName, int pass, int vCred, int stratrum, int nCred, int vTotal, int vDiscount, int vNet)
         {
+            
             this.fName = fName;
+            this.pass = pass;
             this.vCred = vCred;
             this.stratrum = stratrum;
             this.nCred = nCred;
@@ -19,8 +21,9 @@ namespace simuladorMatricula
             this.vDiscount = vDiscount;
             this.vNet = vNet;
         }
-
+                
         public string FName { get => fName; set => fName = value; }
+        public int Pass { get => pass; set => pass = value; }
         public int VCred { get => vCred; set => vCred = value; }
         public int Stratrum { get => stratrum; set => stratrum = value; }
         public int NCred { get => nCred; set => nCred = value; }
@@ -31,6 +34,24 @@ namespace simuladorMatricula
 
 
         //method
+
+        public void Initial()
+        {
+            Console.WriteLine("Estudiante: ");
+            Console.WriteLine("Diego Fernando Vasquez Plaza ");
+            Console.WriteLine("Nombre Aplicación: ");
+            Console.WriteLine("Matricula Estudiantil ");
+            Console.WriteLine("Curso:");
+            Console.WriteLine("Estructuras de Datos ");
+
+        }
+
+        public void EnterPass()
+        {
+            pass = 123;
+
+        }
+
         public void Entry()
         {
             try
