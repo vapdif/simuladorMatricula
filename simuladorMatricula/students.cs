@@ -37,76 +37,81 @@ namespace simuladorMatricula
 
         public void Initial()
         {
-            Console.WriteLine("Estudiante: ");
-            Console.WriteLine("Diego Fernando Vasquez Plaza ");
-            Console.WriteLine("Nombre Aplicación: ");
-            Console.WriteLine("Matricula Estudiantil ");
-            Console.WriteLine("Curso:");
-            Console.WriteLine("Estructuras de Datos ");
-
+            Console.WriteLine(" Estudiante: ");
+            Console.WriteLine("\t Diego Fernando Vasquez Plaza \n");
+            Console.WriteLine(" Nombre Aplicación: ");
+            Console.WriteLine("\t Matricula Estudiantil \n");
+            Console.WriteLine(" Curso:");
+            Console.WriteLine("\t Estructuras de Datos \n");
+            
+            Console.ReadKey();
+            
         }
 
         public void EnterPass()
         {
-            pass = 123;
+            Pass = 123;
+            Console.WriteLine("    Ingrese la contraseña:          |");
+            Console.Write("    Recuerde que son 3 numeros.     |");
+            int enterPass = int.Parse(Console.ReadLine());
+
+            Console.ReadKey();
+            Console.Clear();
+
+            if (Pass == enterPass)
+            {
+                try
+                {
+                    VCred = 112000;
+
+
+
+                    Console.WriteLine("\n Ingrese su nombre completo: ");
+                    Console.Write("\t ");
+                    FName = (Console.ReadLine());
+
+                    Console.Write(" \n Ingrese estrato a que pertenece: ");
+                    Stratrum = int.Parse(Console.ReadLine());
+
+                    Console.Write("\n Ingrese número de créditos a matricular: ");
+                    NCred = int.Parse(Console.ReadLine());
+
+                    if (Stratrum == 1)
+                    {
+                        VTotal = VCred * NCred;
+                        VNet = VTotal * 50 / 100;
+                        VDiscount = VTotal - VNet;
+                    }
+                    else
+                    {
+                        VTotal = VCred * NCred;
+                        VNet = VTotal;
+                    }
+
+                    Console.WriteLine("\n Bienvenida, Bienvenido \n \t" + FName);
+                    Console.WriteLine("\n Se ha matriculado con éxito");
+                    Console.WriteLine("______________________________________________|");
+                    Console.WriteLine("\n El número de créditos matriculados son: " + NCred);
+                    Console.Write("\n Estrato registrado es: " + Stratrum);
+                    Console.Write("\n El valor del descuento: " + VDiscount);
+                    Console.Write("\n El valor a pagar es: " + VNet);
+                    Console.WriteLine("\n_____________________________________________");
+                    Console.WriteLine("\n muchas gracias por su matricula");
+                    Console.WriteLine("______________________________________________|");
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("__________________________________________________________|");
+                    Console.WriteLine("Error, por favor verifique los datos ingresados. ");
+                    Console.WriteLine("__________________________________________________________|");
+                }
+            }
 
         }
 
         public void Entry()
         {
-            try
-            {
-                VCred = 112000;
-
-                //Home Screem
-                Console.WriteLine("______________________________________________|");
-                Console.Title = "      Bienvenido a Matriculas                   |";
-                Console.BackgroundColor = ConsoleColor.DarkYellow;                    // color fondo
-                Console.ForegroundColor = ConsoleColor.DarkBlue;                   // color fuente
-                Console.Clear();                                                // limpia consola y permite que todo quede azul
-                Console.WriteLine("         Matriculas online                    |");
-                Console.WriteLine("               UNAD                           |");
-                Console.WriteLine("______________________________________________|");
-
-                Console.WriteLine("\n Ingrese su nombre completo: ");
-                Console.Write("\t ");
-                FName = (Console.ReadLine());
-
-                Console.Write(" \n Ingrese estrato a que pertenece: ");
-                Stratrum = int.Parse(Console.ReadLine());
-
-                Console.Write("\n Ingrese número de créditos a matricular: ");
-                NCred = int.Parse(Console.ReadLine());
-
-                if (Stratrum==1)
-                {
-                    VTotal = VCred * NCred;
-                    VNet = VTotal * 50 / 100;
-                    VDiscount = VTotal - VNet;
-                }
-                else
-                {
-                    VTotal = VCred * NCred;
-                    VNet = VTotal;
-                }
-
-                Console.WriteLine("\n Bienvenida, Bienvenido \n \t" + FName);
-                Console.WriteLine("\n Se ha matriculado con éxito");
-                Console.WriteLine("______________________________________________|");
-                Console.WriteLine("\n El número de créditos matriculados son: " + NCred);
-                Console.Write("\n Estrato registrado es: " + Stratrum);
-                Console.Write("\n El valor del descuento: " + VDiscount);
-                Console.Write("\n El valor a pagar es: " + VNet);
-                Console.WriteLine("\n_____________________________________________");
-                Console.WriteLine("\n muchas gracias por su matricula");
-                Console.WriteLine("______________________________________________|");
-            }
-            catch(Exception)
-            {
-                Console.WriteLine("__________________________________________________________|");
-                Console.WriteLine("Error, por favor verifique los datos ingresados. ");
-                Console.WriteLine("__________________________________________________________|");
-            }
+            
         }
 
     }
