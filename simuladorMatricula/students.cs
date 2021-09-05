@@ -7,13 +7,14 @@ namespace simuladorMatricula
     class students
     {
         private string fName;
-        private int pass, vCred, stratrum, nCred, vTotal, vDiscount, vNet;
+        private int pass, inpass, vCred, stratrum, nCred, vTotal, vDiscount, vNet;
 
-        public students(string fName, int pass, int vCred, int stratrum, int nCred, int vTotal, int vDiscount, int vNet)
+        public students(string fName, int pass, int inpass, int vCred, int stratrum, int nCred, int vTotal, int vDiscount, int vNet)
         {
             
             this.fName = fName;
             this.pass = pass;
+            this.inpass = inpass;
             this.vCred = vCred;
             this.stratrum = stratrum;
             this.nCred = nCred;
@@ -24,48 +25,87 @@ namespace simuladorMatricula
                 
         public string FName { get => fName; set => fName = value; }
         public int Pass { get => pass; set => pass = value; }
+        public int Inpass { get => inpass; set => inpass = value; }
         public int VCred { get => vCred; set => vCred = value; }
         public int Stratrum { get => stratrum; set => stratrum = value; }
         public int NCred { get => nCred; set => nCred = value; }
         public int VTotal { get => vTotal; set => vTotal = value; }
         public int VDiscount { get => vDiscount; set => vDiscount = value; }
         public int VNet { get => vNet; set => vNet = value; }
-        
+
 
 
         //method
 
+        public void HomeScreem()
+        {
+            //Home Screem
+            Console.WriteLine("______________________________________________|");
+            Console.Title = "      Bienvenido a Matriculas                   |";
+            Console.BackgroundColor = ConsoleColor.DarkYellow;                    // color fondo
+            Console.ForegroundColor = ConsoleColor.DarkBlue;                   // color fuente
+            Console.Clear();                                                // limpia consola y permite que todo quede azul
+            Console.WriteLine("               Matriculas online              |");
+            Console.WriteLine("                  dfvasquezp                  |");
+            Console.WriteLine("______________________________________________|");
+        }
+
         public void Initial()
         {
-            Console.WriteLine(" Estudiante: ");
-            Console.WriteLine("\t Diego Fernando Vasquez Plaza \n");
-            Console.WriteLine(" Nombre Aplicación: ");
-            Console.WriteLine("\t Matricula Estudiantil \n");
-            Console.WriteLine(" Curso:");
-            Console.WriteLine("\t Estructuras de Datos \n");
+            try
+            {
+                Console.WriteLine(" Estudiante: ");
+                Console.WriteLine("\t Diego Fernando Vasquez Plaza \n");
+                Console.WriteLine(" Nombre Aplicación: ");
+                Console.WriteLine("\t Matricula Estudiantil \n");
+                Console.WriteLine(" Curso:");
+                Console.WriteLine("\t Estructuras de Datos \n");
+                Console.WriteLine("______________________________________________|");
+                Console.WriteLine(" Presione Enter para continuar \n");
+                Console.ReadKey();
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("__________________________________________________________|");
+                Console.WriteLine("Error, por favor verifique los datos ingresados. ");
+                Console.WriteLine("__________________________________________________________|");
+                throw;
+            }
+        
             
-            Console.ReadKey();
             
         }
 
         public void EnterPass()
         {
-            Pass = 123;
-            Console.WriteLine("    Ingrese la contraseña:          |");
-            Console.Write("    Recuerde que son 3 numeros.     |");
-            int enterPass = int.Parse(Console.ReadLine());
+            try
+            {
+                Pass = 123;
+                Console.WriteLine("    Ingrese la contraseña:          |");
+                Console.Write("    Recuerde que son 3 numeros.     |");
+                Inpass = int.Parse(Console.ReadLine());
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("__________________________________________________________|");
+                Console.WriteLine("Error, por favor verifique los datos ingresados. ");
+                Console.WriteLine("__________________________________________________________|");
+                //throw;
+            }         
+            
+            
 
-            Console.ReadKey();
-            Console.Clear();
-
-            if (Pass == enterPass)
+            if (Pass == Inpass)
             {
                 try
                 {
+                    Console.Clear();
                     VCred = 112000;
 
 
-
+                    Console.WriteLine("               Matriculas online              |");
+                    Console.WriteLine("                  dfvasquezp                  |");
+                    Console.WriteLine("______________________________________________|");
                     Console.WriteLine("\n Ingrese su nombre completo: ");
                     Console.Write("\t ");
                     FName = (Console.ReadLine());
@@ -94,8 +134,12 @@ namespace simuladorMatricula
                     Console.WriteLine("\n El número de créditos matriculados son: " + NCred);
                     Console.Write("\n Estrato registrado es: " + Stratrum);
                     Console.Write("\n El valor del descuento: " + VDiscount);
+                    Console.ForegroundColor = ConsoleColor.DarkRed;                   // color fuente valor a pagar
+                    Console.WriteLine("\n_____________________________________________");                    
                     Console.Write("\n El valor a pagar es: " + VNet);
                     Console.WriteLine("\n_____________________________________________");
+                    Console.ForegroundColor = ConsoleColor.DarkBlue;                   // color fuente
+                    Console.WriteLine("\n_____________________________________________");                    
                     Console.WriteLine("\n muchas gracias por su matricula");
                     Console.WriteLine("______________________________________________|");
                 }
@@ -104,15 +148,10 @@ namespace simuladorMatricula
                     Console.WriteLine("__________________________________________________________|");
                     Console.WriteLine("Error, por favor verifique los datos ingresados. ");
                     Console.WriteLine("__________________________________________________________|");
+                    //throw;
                 }
             }
-
+            else { Console.WriteLine("Error, por favor verifique los datos ingresados. "); }
         }
-
-        public void Entry()
-        {
-            
-        }
-
     }
 }
