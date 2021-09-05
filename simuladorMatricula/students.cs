@@ -9,6 +9,7 @@ namespace simuladorMatricula
         private string fName;
         private int pass, inpass, vCred, stratrum, nCred, vTotal, vDiscount, vNet;
 
+        //constructor
         public students(string fName, int pass, int inpass, int vCred, int stratrum, int nCred, int vTotal, int vDiscount, int vNet)
         {
             
@@ -22,7 +23,8 @@ namespace simuladorMatricula
             this.vDiscount = vDiscount;
             this.vNet = vNet;
         }
-                
+        
+        //encapsulamos 
         public string FName { get => fName; set => fName = value; }
         public int Pass { get => pass; set => pass = value; }
         public int Inpass { get => inpass; set => inpass = value; }
